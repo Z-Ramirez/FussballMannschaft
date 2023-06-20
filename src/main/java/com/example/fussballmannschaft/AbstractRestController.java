@@ -14,5 +14,6 @@ public abstract class AbstractRestController {
     protected static <T> ResponseEntity<T> postRespond() {
         return ResponseEntity.ok().build();
     }
+
 }
 

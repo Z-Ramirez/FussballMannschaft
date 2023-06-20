@@ -43,8 +43,8 @@ components:
           type: integer
         firstname:
           type: string
-       secondname:
-         type: string
+        secondname:
+          type: string
         age:
           type: integer
         teamId:

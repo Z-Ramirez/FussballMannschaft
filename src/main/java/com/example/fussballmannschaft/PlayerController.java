@@ -8,15 +8,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-public class AbstractController extends AbstractRestController implements PlayersApi {
+public class PlayerController extends AbstractRestController implements PlayersApi {
+    public PlayerDao playerDao;
 
     private final List<Player> players = new ArrayList<>();
 
+    public PlayerController(PlayerDao playerDao){
+        this.playerDao = playerDao;
+    }
+
     @Override
     public ResponseEntity<List<Player>> playersGet() {
-        return getRespond(players);
+        Optional<List<Player>> players = playerDao.getAllPlayers();
+        if (players.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }else {
+            return getRespond(players.get());
+        }
     }
 
     @Override

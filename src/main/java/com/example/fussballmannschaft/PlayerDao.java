@@ -25,15 +25,15 @@ public class PlayerDao {
                 (rs, rowNum) ->{
                     int playerId = rs.getInt("playerId");
                     String firstName = rs.getString("firstname");
-                    String lastName = rs.getString("secondname");
+                    String secondname = rs.getString("secondname");
                     int age = rs.getInt("age");
                     int teamId = rs.getInt("teamId");
                     return new Player()
-                            .teamId(teamId)
+                            .playerId(playerId)
                             .firstname(firstName)
-                            .lastname(lastName)
+                            .secondname(secondname)
                             .age(age)
-                            .roomId(teamId);
+                            .teamId(teamId);
                 }
         );
         if (result.isEmpty()){
