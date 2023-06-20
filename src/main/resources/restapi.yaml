@@ -28,6 +28,31 @@ paths:
           description: Successfully created a new player
         '400':
           description: Failed to create a new player
+    put:
+      description: Returns a list of players
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Player'
+      responses:
+        '200':
+          description: Successfully returned a list of players
+  /players/{playerId}:
+    delete:
+      description: Deletes a shoe from the list
+      parameters:
+        - name: playerId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully deleted a player
+        '400':
+          description: Failed to delete a player
 components:
   schemas:
     Player:

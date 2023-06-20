@@ -4,17 +4,15 @@ import ch.ubs.m295.generated.v1.controller.PlayersApi;
 import ch.ubs.m295.generated.v1.dto.Player;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.NativeWebRequest;
 
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class PlayerController extends AbstractRestController implements PlayersApi {
+public class PlayerController extends PlayerRestController implements PlayersApi {
     public PlayerDao playerDao;
-
-    private final List<Player> players = new ArrayList<>();
 
     public PlayerController(PlayerDao playerDao){
         this.playerDao = playerDao;
@@ -32,8 +30,20 @@ public class PlayerController extends AbstractRestController implements PlayersA
 
     @Override
     public ResponseEntity<Void> playersPost(Player player) {
-        players.add(player);
+        playerDao.insertPlayer(player);
         return postRespond();
+    }
+
+    @Override
+    public ResponseEntity<Void> playersPut(Player player) {
+        playerDao.updatePlayer(player);
+        return updateRespond();
+    }
+
+    @Override
+    public ResponseEntity<Void> playersPlayerIdDelete(Integer playerId) {
+        playerDao.deletePlayer(playerId);
+        return deleteRespond();
     }
 }
 
