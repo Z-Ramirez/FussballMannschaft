@@ -16,10 +16,10 @@ public class TeamController extends TeamRestController implements TeamsApi {
 
         public TeamDao teamDao;
 
-        Logger logger = LoggerFactory.getLogger(com.example.fussballmannschaft.player.PlayerController.class);
+        Logger logger = LoggerFactory.getLogger(TeamController.class);
 
 
-        public TeamController(TeamRestController teamRestController){
+        public TeamController(TeamDao teamDao){
             this.teamDao = teamDao;
         }
 

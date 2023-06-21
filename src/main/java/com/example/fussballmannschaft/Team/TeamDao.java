@@ -13,7 +13,6 @@ import java.util.Optional;
 
 public class TeamDao {
 
-
         private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
         private final static String SELECT_ALL_QUERY = "SELECT * FROM Team";
@@ -58,7 +57,7 @@ public class TeamDao {
         }
 
         public void updateTeam(Team team) {
-            String sql = "UPDATE player SET teamName = :teamName WHERE teamId = :teamId";
+            String sql = "UPDATE team SET teamName = :teamName WHERE teamId = :teamId";
             KeyHolder keyHolder = new GeneratedKeyHolder();
 
             SqlParameterSource namedParameters = new MapSqlParameterSource()

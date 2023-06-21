@@ -67,7 +67,7 @@ public class PlayerDao {
 
     public void updatePlayer(Player player) {
         String sql = "UPDATE player SET firstname = :firstname, secondname = :secondname, age = :age, teamId = :teamId  WHERE playerId = :playerId";
-        KeyHolder keyHolder = new GeneratedKeyHolder();
+        //KeyHolder keyHolder = new GeneratedKeyHolder();
 
         SqlParameterSource namedParameters = new MapSqlParameterSource()
                 .addValue("playerId", player.getPlayerId())
@@ -75,7 +75,7 @@ public class PlayerDao {
                 .addValue("secondname", player.getSecondname())
                 .addValue("age", player.getAge())
                 .addValue("teamId", player.getTeamId());
-        int rowsAffected = namedParameterJdbcTemplate.update(sql, namedParameters, keyHolder);
+        int rowsAffected = namedParameterJdbcTemplate.update(sql, namedParameters/*, keyHolder*/);
         if(rowsAffected == 1){
             System.out.println("Player updated");
         }
