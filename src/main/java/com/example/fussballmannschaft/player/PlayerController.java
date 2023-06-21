@@ -1,4 +1,4 @@
-package com.example.fussballmannschaft;
+package com.example.fussballmannschaft.player;
 
 import ch.ubs.m295.generated.v1.controller.PlayersApi;
 import ch.ubs.m295.generated.v1.dto.Player;

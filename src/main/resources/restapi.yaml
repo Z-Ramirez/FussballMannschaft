@@ -41,7 +41,7 @@ paths:
           description: Successfully returned a list of players
   /players/{playerId}:
     delete:
-      description: Deletes a shoe from the list
+      description: Deletes a player from the list
       parameters:
         - name: playerId
           in: path
@@ -53,6 +53,55 @@ paths:
           description: Successfully deleted a player
         '400':
           description: Failed to delete a player
+  /teams:
+    get:
+      description: Returns a list of teams
+      responses:
+        '200':
+          description: Successfully returned a list of teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team'
+      responses:
+        '200':
+          description: Successfully created a new team
+        '400':
+          description: Failed to create a new team
+    put:
+      description: Returns a list of teams
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team'
+      responses:
+        '200':
+          description: Successfully returned a list of teams
+  /teams/{teamId}:
+    delete:
+      description: Deletes a team from the list
+      parameters:
+        - name: teamId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully deleted a team
+        '400':
+          description: Failed to delete a team
 components:
   schemas:
     Player:
@@ -74,3 +123,13 @@ components:
           type: integer
         teamId:
           type: integer
+    Team:
+      type: object
+      required:
+        - teamId
+        - teamName
+      properties:
+        teamId:
+          type: integer
+        teamName:
+          type: string
