@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="Player.css"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+            crossorigin="anonymous"
+    />
+    <title>Document</title>
+</head>
+
+<body>
+<header>
+    <div class="jumbotron text-center">
+        <h1>Fussballmannschaft</h1>
+    </div>
+</header>
+<br/>
+<div class="container">
+    <div class="row">
+        <button class="button" onclick="spielerAnzeigen()">
+            Spieler anzeigen
+        </button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <table id="player-container"></table>
+    </div>
+
+    <!--bearbeiten -->
+    <div class="bearbeiten">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Spieler Tabelle bearbeiten</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <p>
+                    <label for="addId">ID</label>
+                    <input type="number" id="addId" name="addId" required/>
+                </p>
+            </div>
+            <div class="col-sm-2">
+                <p>
+                    <label for="addFirstname">Vorname</label>
+                    <input type="text" id="addFirstname" name="addFirstname"/>
+                </p>
+            </div>
+            <div class="col-sm-2">
+                <p>
+                    <label for="addSecondname">Nachname</label>
+                    <input type="text" id="addSecondname" name="addSecondname"/>
+                </p>
+            </div>
+            <div class="col-sm-2">
+                <p>
+                    <label for="addAge">Alter</label>
+                    <input type="number" id="addAge" name="addAge"/>
+                </p>
+            </div>
+            <div class="col-sm-2">
+                <p>
+                    <label for="addTeamId">Team ID</label>
+                    <input type="number" id="addTeamId" name="addTeamId"/>
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <button class="button" onclick="spielerHinzufuegen()">
+                    Spieler hinzufügen
+                </button>
+            </div>
+            <div class="col-sm-5">
+                <button class="button" onclick="spielerUpdate()">
+                    Spieler aktualisieren
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    <div class="bearbeiten">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Spieler entfernen</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <p>
+                    <label for="deleteId">ID</label><br>
+                    <input type="number" id="deleteId" name="deleteId"/>
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <button class="button" onclick="spielerLoeschen()">Spieler löschen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <button class="button" onclick="teamAnzeigen()">Team anzeigen</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <table id="team-container"></table>
+    </div>
+</div>
+<script src="Player.js"></script>
+</body>
+</html>
